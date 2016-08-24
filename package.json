@@ -1,7 +1,7 @@
 {
   "name": "eu-cookies",
   "version": "1.0.0",
-  "description": "Yet another Eu Cookies Compliance module",
+  "description": "Yet another EU Cookies Compliance module",
   "main": "index.js",
   "scripts": {
     "test": "browserify tests/euCookies.test.js | tape-run"
@@ -38,5 +38,32 @@
       "ipad/6",
       "android-browser/latest"
     ]
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.11.6",
+    "babel-plugin-istanbul": "^1.0.3",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "coverify": "^1.4.1",
+    "jsdom": "^9.4.2",
+    "tape": "^4.6.0",
+    "tape-run": "^2.1.4",
+    "testling": "^1.7.1",
+    "nyc": "^8.0.0",
+    "istanbul": "^0.4.4",
+    "sinon": "^1.17.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adalbertoteixeira/eu-cookies.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adalbertoteixeira/eu-cookies/issues"
+  },
+  "homepage": "https://github.com/adalbertoteixeira/eu-cookies#readme"
 }

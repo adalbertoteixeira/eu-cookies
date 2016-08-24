@@ -1,4 +1,10 @@
 # EU cookies
+
+[![view on npm](http://img.shields.io/npm/v/eu-cookies.svg?style=flat)](https://www.npmjs.com/package/eu-cookies)
+
+[![browser support](https://ci.testling.com/adalbertoteixeira/eu-cookies.png)
+](https://ci.testling.com/adalbertoteixeira/eu-cookies)
+
 Another EU cookies compliance plugin. The idea behind this module is that until the user accepts to have cookies installed, no cookie will be set, but because your code will not set any!
 
 After the user has accepted cookies, a function will be called that will run the code you want.
