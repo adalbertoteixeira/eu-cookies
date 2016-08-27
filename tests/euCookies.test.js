@@ -11,10 +11,6 @@ test('Test function exists', function(t) {
   t.end();
 });
 
-test('Test cookies not enabled in browser', function(t) {
-  
-});
-
 test('Accepting cookies should trigger expected actions', function(t) {
   var euCookiesFunction = {
     location: 'bottom',
@@ -23,6 +19,5 @@ test('Accepting cookies should trigger expected actions', function(t) {
 
   euCookies.init(euCookiesFunction);
   euCookies.acceptCookies();
-  console.log('spidertattoosCookieAcceptance', localStorage.getItem('spidertattoosCookieAcceptance'));
   t.end();
 });
