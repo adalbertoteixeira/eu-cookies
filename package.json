@@ -4,7 +4,8 @@
   "description": "Yet another EU Cookies Compliance module",
   "main": "index.js",
   "scripts": {
-    "test": "browserify tests/euCookies.test.js | tape-run"
+    "test": "browserify tests/euCookies.test.js | tape-run",
+    "build": "rm -rf dist/ &&  mkdir dist/ && babel index.js --out-file dist/index.js"
   },
   "browserify": {
     "transform": [
@@ -27,12 +28,11 @@
     "nyc": "^8.0.0",
     "istanbul": "^0.4.4",
     "babel-plugin-istanbul": "^1.0.3",
-    "babel-register": "^6.11.6"
-  },
-  "dependencies": {
+    "babel-register": "^6.11.6",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1"
   },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adalbertoteixeira/eu-cookies.git"
