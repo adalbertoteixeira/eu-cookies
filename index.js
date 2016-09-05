@@ -149,7 +149,7 @@ euCookies.acceptCookies = () => {
   }
   euCookies.cookieWarningWrapper.parentNode.removeChild(euCookies.cookieWarningWrapper);
 
-  // localStorage.setItem('spidertattoosCookieAcceptance', true);
+  localStorage.setItem('spidertattoosCookieAcceptance', true);
   euCookies.euCookiesOptions.onCookiesAccepted();
 };
 
