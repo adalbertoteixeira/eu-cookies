@@ -2,7 +2,7 @@
   "name": "eu-cookies",
   "version": "1.2.1",
   "description": "Yet another EU Cookies Compliance module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "browserify tests/euCookies.test.js | tape-run",
     "build": "rm -rf dist/ &&  mkdir dist/ && babel index.js --out-file dist/index.js"
