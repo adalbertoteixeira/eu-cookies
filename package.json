@@ -1,6 +1,6 @@
 {
   "name": "eu-cookies",
-  "version": "1.2.4",
+  "version": "1.2.7",
   "description": "Yet another EU Cookies Compliance module",
   "main": "dist/index.js",
   "scripts": {
