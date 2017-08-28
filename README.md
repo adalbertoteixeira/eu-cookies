@@ -8,7 +8,11 @@ After the user has accepted cookies, a function will be called that will run the
 
 ## Install
 
-`npm install euCookies --save`
+`npm install eu-cookies --save`
+
+or
+
+`yarn add eu-cookies`
 
 ## Usage
 
