@@ -80,10 +80,12 @@ euCookies.init = (options) => {
   .eu-cookie-compliance-button--accept {
     background-color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.white : euCookies.black};
     color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.black : euCookies.white};
+    cursor: pointer;
   }
   .eu-cookie-compliance-button--url {
     background-color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.black : euCookies.gray};
     color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.white : euCookies.black};
+    cursor: pointer;
   }
   @media (min-width: 600px) {
     .eu-cookie-compliance-button--accept {
