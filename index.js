@@ -51,8 +51,8 @@ euCookies.init = (options) => {
     left: 0;
     right: 0;
     bottom: ${euCookies.euCookiesOptions.location === 'bottom' ? 0 : 'initial'};
-    background-color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.black : euCookies.white};
-    color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.white : euCookies.black};
+    background-color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.black : euCookies.white};
+    color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.white : euCookies.black};
   }
   .eu-cookie-compliance-text__wrapper {
     float: left;
@@ -78,13 +78,13 @@ euCookies.init = (options) => {
     font-weight: bold;
   }
   .eu-cookie-compliance-button--accept {
-    background-color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.white : euCookies.black};
-    color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.black : euCookies.white};
+    background-color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.white : euCookies.black};
+    color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.black : euCookies.white};
     cursor: pointer;
   }
   .eu-cookie-compliance-button--url {
-    background-color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.black : euCookies.gray};
-    color: ${euCookies.euCookiesOptions.theme === 'light' ? euCookies.white : euCookies.black};
+    background-color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.black : euCookies.gray};
+    color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.white : euCookies.black};
     cursor: pointer;
   }
   @media (min-width: 600px) {
