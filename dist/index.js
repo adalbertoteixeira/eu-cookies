@@ -40,7 +40,7 @@ euCookies.init = function (options) {
     return false;
   }
 
-  if (localStorage.getItem('spidertattoosCookieAcceptance')) {
+  if (localStorage.getItem('euCookieAcceptance')) {
     return euCookies.euCookiesOptions.onCookiesAccepted();
   }
 
