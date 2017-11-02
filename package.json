@@ -1,11 +1,11 @@
 {
   "name": "eu-cookies",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Yet another EU Cookies Compliance module",
   "main": "dist/index.js",
   "scripts": {
     "test": "browserify tests/euCookies.test.js | tape-run",
-    "build": "rm -rf dist/ &&  mkdir dist/ && ./node_modules/.bin/babel index.js --out-file dist/index.js"
+    "build": "rm -rf dist/ &&  mkdir dist/ && ./node_modules/.bin/babel --no-comments --compact true --minified --source-maps map index.js --out-file dist/index.js"
   },
   "browserify": {
     "transform": [

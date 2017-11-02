@@ -14,6 +14,34 @@ const euCookies = {
   },
 };
 
+const storageAvailable = (type) => {
+  try {
+    const storage = window[type];
+    const x = '__storage_test__';
+
+    storage.setItem(x, x);
+    storage.removeItem(x);
+
+    return true;
+  } catch (e) {
+    return false;
+  //   return e instanceof DOMException && (
+  //       // everything except Firefox
+  //       e.code === 22 ||
+  //       // Firefox
+  //       e.code === 1014 ||
+  //       // test name field too, because code might not be present
+  //       // everything except Firefox
+  //       e.name === 'QuotaExceededError' ||
+  //       // Firefox
+  //       e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+  //       // acknowledge QuotaExceededError only if there's something already stored
+  //       storage.length !== 0;
+  }
+};
+
+const isStorageAvailable = storageAvailable();
+
 euCookies.init = (options) => {
   euCookies.euCookiesOptions = Object.assign(euCookies.euCookiesOptions, options);
   const addElement = (elementOptions) => {
@@ -39,7 +67,7 @@ euCookies.init = (options) => {
     return false;
   }
 
-  if (localStorage.getItem('euCookieAcceptance')) {
+  if (isStorageAvailable && localStorage.getItem('euCookieAcceptance')) {
     return euCookies.euCookiesOptions.onCookiesAccepted();
   }
 
@@ -151,7 +179,9 @@ euCookies.acceptCookies = () => {
   }
   euCookies.cookieWarningWrapper.parentNode.removeChild(euCookies.cookieWarningWrapper);
 
-  localStorage.setItem('spidertattoosCookieAcceptance', true);
+  if (isStorageAvailable) {
+    localStorage.setItem('spidertattoosCookieAcceptance', true);
+  }
   euCookies.euCookiesOptions.onCookiesAccepted();
 };
 
