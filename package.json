@@ -1,6 +1,6 @@
 {
   "name": "eu-cookies",
-  "version": "1.3.4",
+  "version": "1.4.0",
   "description": "Yet another EU Cookies Compliance module",
   "main": "dist/index.js",
   "scripts": {
@@ -29,7 +29,10 @@
     "tape": "^4.6.0",
     "tape-run": "^2.1.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-google": "^0.9.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adalbertoteixeira/eu-cookies.git"
