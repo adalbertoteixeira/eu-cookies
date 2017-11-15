@@ -180,7 +180,7 @@ euCookies.acceptCookies = () => {
   euCookies.cookieWarningWrapper.parentNode.removeChild(euCookies.cookieWarningWrapper);
 
   if (isStorageAvailable) {
-    localStorage.setItem('spidertattoosCookieAcceptance', true);
+    localStorage.setItem('euCookieAcceptance', true);
   }
   euCookies.euCookiesOptions.onCookiesAccepted();
 };
