@@ -9,8 +9,8 @@ const euCookies = {
     theme: 'light',
     okButtonText: 'Ok, I accept',
     urlButtonText: 'Learn more',
-    pluginText: 'This site uses cookies from Google to deliver its services, to personalize ads and to analyze traffic. Information about your use of this site is shared with Google. By using this site, you agree to its use of cookies',
-    onCookiesAccepted(){},
+    pluginText: 'This site uses cookies from Google to deliver its services,to personalize ads and to analyze traffic. Information about your use of this site is shared with Google. By using this site, you agree to its use of cookies',
+    onCookiesAccepted() {},
   },
 };
 
@@ -47,17 +47,26 @@ const storageAvailable = (type) => {
 const isStorageAvailable = storageAvailable();
 
 euCookies.init = (options) => {
-  euCookies.euCookiesOptions = Object.assign(euCookies.euCookiesOptions, options);
+  euCookies.euCookiesOptions = Object.assign(
+    euCookies.euCookiesOptions, options,
+  );
   const addElement = (elementOptions) => {
     const cookieWarningButtonUrl = document.createElement(elementOptions.type);
     cookieWarningButtonUrl.classList.add(elementOptions.class);
-    elementOptions.extraClass ? cookieWarningButtonUrl.classList.add(elementOptions.extraClass) : null;
+    elementOptions.extraClass ?
+      cookieWarningButtonUrl.classList.add(elementOptions.extraClass) :
+      null;
     cookieWarningButtonUrl.innerHTML = elementOptions.text;
     /**
      * @todo remove event listener after removing object
      */
-    cookieWarningButtonUrl.addEventListener('click', elementOptions.eventListener);
-    euCookies.eventListenersTargets.push({cookieWarningButtonUrl: cookieWarningButtonUrl, eventListener: elementOptions.eventListener});
+    cookieWarningButtonUrl.addEventListener(
+      'click', elementOptions.eventListener,
+    );
+    euCookies.eventListenersTargets.push({
+      cookieWarningButtonUrl: cookieWarningButtonUrl,
+      eventListener: elementOptions.eventListener,
+    });
     cookieWarningButtonsWrapper[0].appendChild(cookieWarningButtonUrl);
   };
 
@@ -65,7 +74,9 @@ euCookies.init = (options) => {
     euCookies.cookieWarningWrapper = document.createElement('div');
     euCookies.cookieWarningWrapper.innerHTML = `
       <div class="eu-cookie-compliance-text__wrapper">
-        <p class="eu-cookie-compliance-text">The browser does not allow cookies to be set.</p>
+        <p class="eu-cookie-compliance-text">
+          The browser does not allow cookies to be set.
+        </p>
       </div>
     `;
     return false;
@@ -83,8 +94,16 @@ euCookies.init = (options) => {
     left: 0;
     right: 0;
     bottom: ${euCookies.euCookiesOptions.location === 'bottom' ? 0 : 'initial'};
-    background-color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.black : euCookies.white};
-    color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.white : euCookies.black};
+    background-color: ${
+      euCookies.euCookiesOptions.theme === 'dark' ?
+      euCookies.black :
+      euCookies.white
+    };
+    color: ${
+      euCookies.euCookiesOptions.theme === 'dark' ?
+      euCookies.white :
+      euCookies.black
+    };
   }
   .eu-cookie-compliance-text__wrapper {
     float: left;
@@ -110,13 +129,29 @@ euCookies.init = (options) => {
     font-weight: bold;
   }
   .eu-cookie-compliance-button--accept {
-    background-color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.white : euCookies.black};
-    color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.black : euCookies.white};
+    background-color: ${
+      euCookies.euCookiesOptions.theme === 'dark' ?
+      euCookies.white :
+      euCookies.black
+    };
+    color: ${
+      euCookies.euCookiesOptions.theme === 'dark' ?
+      euCookies.black :
+      euCookies.white
+    };
     cursor: pointer;
   }
   .eu-cookie-compliance-button--url {
-    background-color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.black : euCookies.gray};
-    color: ${euCookies.euCookiesOptions.theme === 'dark' ? euCookies.white : euCookies.black};
+    background-color: ${
+      euCookies.euCookiesOptions.theme === 'dark' ?
+      euCookies.black :
+      euCookies.gray
+    };
+    color: ${
+      euCookies.euCookiesOptions.theme === 'dark' ?
+      euCookies.white :
+      euCookies.black
+    };
     cursor: pointer;
   }
   @media (min-width: 600px) {
@@ -134,7 +169,9 @@ euCookies.init = (options) => {
   if (domElementToUseStyleTag.styleSheet) {
     domElementToUseStyleTag.styleSheet.cssText = domElementToUseCSS;
   } else {
-    domElementToUseStyleTag.appendChild(document.createTextNode(domElementToUseCSS));
+    domElementToUseStyleTag.appendChild(
+      document.createTextNode(domElementToUseCSS)
+    );
   }
 
   head.appendChild(domElementToUseStyleTag);
@@ -145,31 +182,51 @@ euCookies.init = (options) => {
    * @todo optional link param
    */
   const content = `<div class="eu-cookie-compliance-text__wrapper">
-      <p class="eu-cookie-compliance-text">${euCookies.euCookiesOptions.pluginText}</p>
+      <p class="eu-cookie-compliance-text">
+        ${euCookies.euCookiesOptions.pluginText}
+      </p>
     </div>
-    <div id="eu-cookie-compliance-buttons__wrapper" class="eu-cookie-compliance-buttons__wrapper">
+    <div
+      id="eu-cookie-compliance-buttons__wrapper" 
+      class="eu-cookie-compliance-buttons__wrapper"
+    >
     </div>`;
   euCookies.cookieWarningWrapper.innerHTML = content;
 
   let domElementToUse;
   if (euCookies.euCookiesOptions.domElement) {
-    domElementToUse = document.getElementById(euCookies.euCookiesOptions.DOMElement);
+    domElementToUse = document.getElementById(
+      euCookies.euCookiesOptions.DOMElement,
+    );
   } else {
     domElementToUse = document.body;
   }
 
   document.body.appendChild(euCookies.cookieWarningWrapper);
 
-  const cookieWarningButtonsWrapper = document.getElementsByClassName('eu-cookie-compliance-buttons__wrapper');
-  addElement({type: 'button', class: 'eu-cookie-compliance-button', extraClass: 'eu-cookie-compliance-button--accept', text: euCookies.euCookiesOptions.okButtonText, eventListener: euCookies.acceptCookies.bind(this, euCookies.euCookiesOptions)});
+  const cookieWarningButtonsWrapper = document.getElementsByClassName(
+    'eu-cookie-compliance-buttons__wrapper',
+  );
+  addElement({
+    type: 'button',
+    class: 'eu-cookie-compliance-button',
+    extraClass: 'eu-cookie-compliance-button--accept',
+    text: euCookies.euCookiesOptions.okButtonText,
+    eventListener: euCookies.acceptCookies.bind(
+      this, euCookies.euCookiesOptions,
+    ),
+  });
 
-  if (!!euCookies.euCookiesOptions.cookiesUrl) {
-    addElement({type: 'button', class: 'eu-cookie-compliance-button', extraClass: 'eu-cookie-compliance-button--url', text: euCookies.euCookiesOptions.urlButtonText, eventListener: euCookies.goToCookiesUrl});
+  if (euCookies.euCookiesOptions.cookiesUrl) {
+    addElement({
+      type: 'button',
+      class: 'eu-cookie-compliance-button',
+      extraClass: 'eu-cookie-compliance-button--url',
+      text: euCookies.euCookiesOptions.urlButtonText,
+      eventListener: euCookies.goToCookiesUrl,
+    });
   }
-  
 
-  
-  
   return false;
 };
 
@@ -178,10 +235,16 @@ euCookies.goToCookiesUrl = () => {
 };
 
 euCookies.acceptCookies = () => {
-  for (var i = euCookies.eventListenersTargets.length - 1; i >= 0; i--) {
-    euCookies.eventListenersTargets[i].cookieWarningButtonUrl.removeEventListener('click', euCookies.eventListenersTargets[i].eventListener);
+  for (let i = euCookies.eventListenersTargets.length - 1; i >= 0; i--) {
+    euCookies.eventListenersTargets[i]
+      .cookieWarningButtonUrl
+      .removeEventListener(
+        'click', euCookies.eventListenersTargets[i].eventListener,
+      );
   }
-  euCookies.cookieWarningWrapper.parentNode.removeChild(euCookies.cookieWarningWrapper);
+  euCookies.cookieWarningWrapper.parentNode.removeChild(
+    euCookies.cookieWarningWrapper,
+  );
 
   if (isStorageAvailable) {
     localStorage.setItem('euCookieAcceptance', true);
