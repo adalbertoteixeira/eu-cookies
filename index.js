@@ -19,6 +19,10 @@ const storageAvailable = (type) => {
     const storage = window[type];
     const x = '__storage_test__';
 
+    if (!storage) {
+      return false;
+    }
+
     storage.setItem(x, x);
     storage.removeItem(x);
 
