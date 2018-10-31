@@ -28,8 +28,6 @@
     "sinon": "^1.17.5",
     "tape": "^4.6.0",
     "tape-run": "^2.1.4"
-  },
-  "dependencies": {
     "eslint": "^4.11.0",
     "eslint-config-google": "^0.9.1"
   },
