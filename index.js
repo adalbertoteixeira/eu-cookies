@@ -14,7 +14,7 @@ const euCookies = {
   },
 };
 
-const storageAvailable = (type) => {
+const storageAvailable = (type = 'localStorage') => {
   try {
     const storage = window[type];
     const x = '__storage_test__';
